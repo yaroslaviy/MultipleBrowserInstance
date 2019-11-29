@@ -8,21 +8,21 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <div class="jumbotron">
+    <div class="jumbotron bg-dark text-white">
       <h1 class="display-4">Welcome to MulipleBrowserInstance</h1>
-      <p class="lead">This is a simple script that will open mulitple borwser with your desired link and your proxies(if applicable).</p>
+      <p class="lead text-muted">This is a simple script that will open mulitple browser with your desired link and your proxies(if applicable).</p>
       <hr class="my-4">
-      <p>Please make sure that your links has https:// at the start </p>
+      <p class="text-muted">Please make sure that your links has https:// at the start </p>
       <div class="form-group">
         <label for="formGroupExampleInput">Link to open browsers with</label>
-        <input type="text" class="form-control" id="sitelink" placeholder="example: yeezysupply.com">
+        <input type="text" class="form-control border border-secondary bg-secondary text-light" id="sitelink">
       </div>
       <div class="form-group">
         <label for="formGroupExampleInput2">Number of browsers to open</label>
-        <input type="number" class="form-control" id="tasksnum">
+        <input type="number" class="form-control border border-secondary bg-secondary text-light" id="tasksnum">
       </div>
-      <p class="lead">
-        <button type="button" class="btn btn-primary btn-lg" id="start">Start script</button>
+      <p class="lead d-flex justify-content-center">
+        <button type="button" class="btn btn-light btn-lg" id="start">Start script</button>
       </p>
     </div>
     </body>

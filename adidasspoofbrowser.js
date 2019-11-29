@@ -10,10 +10,12 @@ const {link, proxy} = workerData
 
 async function createBrowsers() {
     const args = ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certifcate-errors'];
+    let arr_proxy;
     if(proxy.length > 0){
-    const arr_proxy = proxy.split(':')
-    const proxyserver = arr_proxy[0] + ':' + arr_proxy[1]
-    args.push(`--proxy-server=${proxyserver}`);
+        arr_proxy = proxy.split(':')
+        console.log(arr_proxy,1)
+        const proxyserver = arr_proxy[0] + ':' + arr_proxy[1]
+        args.push(`--proxy-server=${proxyserver}`);
     }
     const browser = await puppeteer.launch({
         headless: false,
@@ -30,9 +32,9 @@ async function createBrowsers() {
 
     
 
-    //console.log(arr_proxy)
+    
     if(proxy.length>0)
-    await page.authenticate({username: arr_proxy[2], password: arr_proxy[3]});
+        await page.authenticate({username: arr_proxy[2], password: arr_proxy[3]});
     
     await page.goto(link);
     (await browser.pages())[0].close();

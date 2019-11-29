@@ -1,11 +1,12 @@
 {
-  "name": "multiplebrowser",
-  "version": "1.0.0",
+  "name": "multiplebrowserbot",
+  "version": "0.1.0",
   "description": "",
-  "main": "main.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ./app.js"
+    "start": "electron ./app.js",
+    "build": "electron-packager MultipleBrowserInstance MulitpleBrowserBot"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
     "puppeteer-extra-plugin-stealth": "^2.2.5"
   },
   "devDependencies": {
-    "electron": "^6.1.5"
+    "electron": "^6.1.5",
+    "electron-packager": "^14.1.1"
   }
 }
