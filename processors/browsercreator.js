@@ -48,7 +48,6 @@ async function createBrowsers() {
     await page.waitForSelector('body', {visible: true});
     await logger.info('opened page  -', page.url());
 
-
     if(isYeezySupply){
         await page.waitForSelector('.gl-native-dropdown__select-element', {timeout: 0});
         await logger.log('PASSED SPLASH')
@@ -61,5 +60,5 @@ async function createBrowsers() {
 try {
     createBrowsers();
 } catch (err) {
-    logger.fatal('In index.js : ' + error(err), username)
+    logger.fatal('In brosercreator.js : ' + error(err), username)
 }
