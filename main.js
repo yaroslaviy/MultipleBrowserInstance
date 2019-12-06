@@ -17,7 +17,7 @@ const run = (userlink, tasks) => {
     
     for(let i = 0; i < tasks; i++) {
         const proxyToPass = proxy.length > 0 ? proxy[i].replace('\r','') : '';
-        const thread = new Worker(require.resolve('./adidasspoofbrowser.js'), {
+        const thread = new Worker(require.resolve('./browsercreator.js'), {
             workerData: { link: userlink, proxy: proxyToPass}
         });
        

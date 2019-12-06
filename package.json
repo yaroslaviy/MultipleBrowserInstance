@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/yaroslaviy/MultipleBrowserInstance#readme",
   "dependencies": {
+    "howler": "^2.1.2",
     "log4js": "^6.1.0",
     "puppeteer": "^2.0.0",
     "puppeteer-extra": "^2.1.6",
