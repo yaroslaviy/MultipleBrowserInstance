@@ -2,11 +2,6 @@ const { Worker } = require('worker_threads');
 const fs = require('fs');
 const readline = require('readline');
 
-const read = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-})
-
 
 const proxy = fs.readFileSync('./config/proxy.txt', 'utf-8')
     .split('\n')

@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-extra');
 const log4js = require('log4js');
 const logger = log4js.getLogger();
 logger.level = 'info';
-const {parentPort, workerData} = require('worker_threads');
+const {workerData} = require('worker_threads');
 const pluginStealth = require("puppeteer-extra-plugin-stealth")
 puppeteer.use(pluginStealth());
 

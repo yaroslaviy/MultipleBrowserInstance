@@ -1,4 +1,4 @@
-const {ipcRenderer, remote} = require('electron');
+const {remote} = require('electron');
 
 const startbutton = document.querySelector('#start');
 startbutton.addEventListener('click', () => {
