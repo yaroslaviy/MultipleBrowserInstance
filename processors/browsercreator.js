@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer-extra');
 const {parentPort, workerData} = require('worker_threads');
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
-const {Howl, Howler} = require('howler');
+const audioplayer = require('play-sound');
 
 const log4js = require('log4js');
 const logger = log4js.getLogger();
@@ -9,12 +9,10 @@ logger.level = 'info';
 
 puppeteer.use(pluginStealth());
 const {link, proxy} = workerData;
-const alarmSound = new Howl({
-    src: ['alarm.mp3']
-})
+
 
 async function createBrowsers() {
-    const args = ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certifcate-errors', ];
+    const args = ['--no-sandbox', '--disable-setuid-sandbox', '--ignore-certifcate-errors' ];
     let arr_proxy;
     if(proxy.length > 0){
         arr_proxy = proxy.split(':')
@@ -26,11 +24,8 @@ async function createBrowsers() {
         headless: false,
         args: args,
         ignoreDefaultArgs: ['--enable-automation'],
-        defaultViewport: {
-            width: 1200,
-            height: 1000
-
-        }
+        defaultViewport: null,
+        devtools: false
     });
     // open new tab
     const page = await browser.newPage();
@@ -52,7 +47,9 @@ async function createBrowsers() {
         await page.waitForSelector('.gl-native-dropdown__select-element', {timeout: 0});
         await logger.log('PASSED SPLASH')
         await page.bringToFront()
-        await alarmSound.play();
+        await audioplayer.play('./config/alarm.mp3', function(err){
+            if (err) throw err
+        })
     }
 
 }
