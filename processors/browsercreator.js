@@ -1,7 +1,9 @@
 const puppeteer = require('puppeteer-extra');
 const {parentPort, workerData} = require('worker_threads');
 const pluginStealth = require("puppeteer-extra-plugin-stealth");
-const audioplayer = require('play-sound');
+const Discord = require('discord.js')
+const {discordid, discordtoken} = require('../config/discord')
+const hook = new Discord.WebhookClient(discordid, discordtoken);
 
 const log4js = require('log4js');
 const logger = log4js.getLogger();
@@ -32,7 +34,7 @@ async function createBrowsers() {
 
     const isYeezySupply = /yeezysupply.com/g.test(link)
     
-
+    hook.send('IM HERE')
     
     if(proxy.length>0 && arr_proxy.length > 2)
         await page.authenticate({username: arr_proxy[2], password: arr_proxy[3]});
@@ -47,9 +49,7 @@ async function createBrowsers() {
         await page.waitForSelector('.gl-native-dropdown__select-element', {timeout: 0});
         await logger.log('PASSED SPLASH')
         await page.bringToFront()
-        await audioplayer.play('./config/alarm.mp3', function(err){
-            if (err) throw err
-        })
+        
     }
 
 }
