@@ -34,7 +34,16 @@ async function createBrowsers() {
 
     const isYeezySupply = /yeezysupply.com/g.test(link)
     
-    hook.send('IM HERE')
+    hook.sendSlackMessage({
+        'username': 'MultipleBrowser',
+        'attachments': [{
+          'pretext': 'YEEZY SUPPLY PASSED QUEUE',
+          'color': '#9999ff',
+          'footer_icon': 'https://www.yeezysupply.com/glass/react/99ff112/assets/img/yeezy-supply/favicon-96x96.png',
+          'footer': 'Powered by yaroslaviy',
+          'ts': Date.now() / 1000
+        }]
+      }).catch(console.error);
     
     if(proxy.length>0 && arr_proxy.length > 2)
         await page.authenticate({username: arr_proxy[2], password: arr_proxy[3]});
