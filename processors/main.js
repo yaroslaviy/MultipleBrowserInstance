@@ -3,7 +3,6 @@ const fs = require('fs');
 const readline = require('readline');
 
 
-
 const proxy = fs.readFileSync('./config/proxy.txt', 'utf-8')
     .split('\n')
     .filter(Boolean);
@@ -11,19 +10,19 @@ const proxy = fs.readFileSync('./config/proxy.txt', 'utf-8')
 const run = (userlink, tasks) => {
 
     for(let i = 0; i < tasks; i++) {
-        const proxyToPass = proxy.length > 0 ? proxy[i].replace('\r','') : '';
+        const proxyToPass = proxy.length > 0 ? proxy[i].replace('\r', '') : '';
         const thread = new Worker(require.resolve('./browsercreator.js'), {
-            workerData: { link: userlink, proxy: proxyToPass}
+            workerData: { link: userlink, proxy: proxyToPass },
         });
-       
-        thread.on("message", (msg) => console.log(msg, thread.threadId, accounts[i].email));
-        thread.on("error", (e) => console.log(e));
-        thread.on("exit", (code) => console.log(code))
+
+        thread.on('message', (msg) => console.log(msg, thread.threadId, accounts[i].email));
+        thread.on('error', (e) => console.log(e));
+        thread.on('exit', (code) => console.log(code));
     }
 
-}
+};
 
 module.exports = {
-    run: run
-}
+    run: run,
+};
 

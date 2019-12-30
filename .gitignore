@@ -60,6 +60,6 @@ typings/
 # next.js build output
 .next
 
-# accounts
-account.json
+# config
 config
+.eslint.json
