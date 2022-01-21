@@ -20,7 +20,7 @@
   "homepage": "https://github.com/yaroslaviy/MultipleBrowserInstance#readme",
   "dependencies": {
     "discord.js": "^11.5.1",
-    "log4js": "^6.1.0",
+    "log4js": "^6.4.0",
     "puppeteer": "^2.0.0",
     "puppeteer-extra": "^2.1.6",
     "puppeteer-extra-plugin-stealth": "^2.2.5",
